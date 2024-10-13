@@ -1,16 +1,28 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { Outlet } from 'react-router-dom'
 import MainNavigator from '../components/MainNavigator'
 
+import { useSelector } from 'react-redux'
+import { darkTheme, lightTheme } from '../style/themes'
+import GlobalStyle from '../style/GlobalStyle'
+
 function RootLayout() {
+  const themes = useSelector((state) => state.themes.light);
+  const currentThemes = themes ? lightTheme : darkTheme;
+
   return (
-    <StyledRootLayout>
-      <MainNavigator />
-      <OutletWrapper>
-        <Outlet />
-      </OutletWrapper>
-    </StyledRootLayout>    
+    <ThemeProvider theme={currentThemes}>
+      <GlobalStyle />
+      
+      <StyledRootLayout>
+        <MainNavigator />
+
+        <OutletWrapper>
+          <Outlet/>
+        </OutletWrapper>
+      </StyledRootLayout> 
+    </ThemeProvider>   
   )
 }
 
@@ -20,10 +32,10 @@ const StyledRootLayout = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 3rem;
+  padding-top: 3rem;
   gap: 5rem;
 `
 
 const OutletWrapper = styled.div`
-  
+  width: 70%;
 `

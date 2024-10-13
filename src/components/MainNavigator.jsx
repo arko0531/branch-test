@@ -1,34 +1,38 @@
 import React from 'react'
 import styled from 'styled-components'
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function MainNavigator() {
-  return (
-    <>
-        <List>
-            <li>
-                <StyledNavLink to='/'>Home</StyledNavLink>
-            </li>
-            <li>
-                <StyledNavLink to='/counter'>Counter</StyledNavLink>
-            </li>
-        </List>
-    </>
-  )
+    return (
+        <>
+            <List>
+                <ul>
+                    <li>
+                        <StyledNavLink to='/'>Home</StyledNavLink>
+                    </li>
+                    <li>
+                        <StyledNavLink to='/counter'>Counter</StyledNavLink>
+                    </li>
+                </ul>
+            </List>
+        </>
+    )
 }
 
 export default MainNavigator
 
 const List = styled.div`
-    display: flex;
-    gap: 6rem;
+    & ul {
+        display: flex;
+        gap: 6rem;
+        flex-direction: row;
+    }
 
     & li {
         list-style: none;
     }
 
     & a {
-        color: black;
         font-size: 2rem;
         font-weight: 600;
         text-decoration: none;

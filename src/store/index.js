@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import counterReducer from './counter';
+import themesReducer from './themes';
 
 const store = configureStore({
     reducer: {
-        counter: counterReducer
+        counter: counterReducer,
+        themes: themesReducer
     }
 });
 

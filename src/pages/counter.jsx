@@ -55,6 +55,7 @@ export default CounterPage;
 const StyledCounter = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 4rem;
 `;
 
@@ -68,7 +69,7 @@ const CounterButton = styled.button`
   border-radius: 12px;
   border: none;
   background-color: #4949ff;
-  color: #ffea00;
+  color: white;
   cursor: pointer;
 
   &:hover,
