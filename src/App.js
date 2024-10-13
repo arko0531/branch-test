@@ -1,4 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
+
 import RootLayout from './pages/Root';
 import HomePage from './pages/home';
 import CounterPage from './pages/counter';
@@ -16,7 +19,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <RouterProvider router={router}/>
+    <Provider store={store}><RouterProvider router={router}/></Provider>
   );
 }
 

@@ -7,7 +7,9 @@ function RootLayout() {
   return (
     <StyledRootLayout>
       <MainNavigator />
-      <Outlet />
+      <OutletWrapper>
+        <Outlet />
+      </OutletWrapper>
     </StyledRootLayout>    
   )
 }
@@ -20,4 +22,8 @@ const StyledRootLayout = styled.div`
   flex-direction: column;
   margin-top: 3rem;
   gap: 5rem;
+`
+
+const OutletWrapper = styled.div`
+  
 `
